@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": "./",
+    "target": "es2018",
+    /* Modules */
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,
+    /* Type Checking */
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
