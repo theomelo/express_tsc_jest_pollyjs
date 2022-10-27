@@ -1,3 +1,4 @@
+import { setupPolly } from "setup-polly-jest";
 import { Polly } from "@pollyjs/core";
 import NodeHttpAdapter from '@pollyjs/adapter-node-http';
 import FSPersister from '@pollyjs/persister-fs';
@@ -6,9 +7,8 @@ import path from "path";
 Polly.register(NodeHttpAdapter);
 Polly.register(FSPersister);
 
-const polly = new Polly(
-  'testing',
-  {
+export default function autoSetupPolly() {
+  return setupPolly({
     adapters: ['node-http'],
     mode: 'replay',
     persister: 'fs',
@@ -18,9 +18,5 @@ const polly = new Polly(
       }
     },
     recordIfMissing: true
-  }
-);
-
-export default polly;
-
-
+  });
+}

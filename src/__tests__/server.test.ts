@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
-import polly from '../__tests__/__config__/polly';
+import autoSetupPolly from '../__tests__/__config__/polly';
 
 describe('It works', () => {
-  const { server } = polly;
+  const pollyContext = autoSetupPolly();
 
   beforeEach(() => {
-    server
+    pollyContext.polly.server
       .get('https://www.google.com')
       .intercept((_, res) => void res.json({ hello: 'world' }) );
   });
